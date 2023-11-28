@@ -1,0 +1,27 @@
+<div class="container rounded d-flex justify-content-center my-4">
+  <div class="card p-4">
+    <h1 class="my-3 ms-2">Add Item Form</h1>
+    <form class="m-4 px-3" name="addItemForm" ng-submit="addItem()" novalidate>
+      <div class="mb-3">
+        <label class="form-label" for="item">Enter the item to be added</label>
+        <input
+          class="form-control"
+          type="text"
+          id="item"
+          name="newItem"
+          ng-model="newItem"
+          ng-minlength="3"
+          required
+        />
+        <div class="text-danger" ng-show="addItemForm.newItem.$error.required && addItemForm.newItem.$dirty">
+          Item is required.
+        </div>
+        <div class="text-danger" ng-show="addItemForm.newItem.$error.minlength">
+          Item must be at least 3 characters long.
+        </div>
+      </div>
+
+      <button class="btn btn-outline-success mx-auto" type="submit" ng-disabled="addItemForm.$invalid">Add</button>
+    </form>
+  </div>
+</div>
